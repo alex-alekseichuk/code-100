@@ -1,0 +1,5 @@
+#!/usr/bin/env -S expect -f
+
+source [file join [file dirname [info script]] .. common common.exp]
+
+expect_strict "Hello, World!" "waiting for result"

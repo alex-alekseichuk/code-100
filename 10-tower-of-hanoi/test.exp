@@ -1,0 +1,7 @@
+#!/usr/bin/env -S expect -f
+
+source [file join [file dirname [info script]] .. common common.exp]
+
+expect_strict "Введите количество дисков: " "waiting for prompt"
+send_clean "3\r"
+expect_strict "A -(0)-> C\r\nA -(1)-> B\r\nC -(0)-> B\r\nA -(2)-> C\r\nB -(0)-> A\r\nB -(1)-> C\r\nA -(0)-> C" "waiting for result"

@@ -1,0 +1,7 @@
+#!/usr/bin/env -S expect -f
+
+source [file join [file dirname [info script]] .. common common.exp]
+
+expect_strict "Введите целое число: " "waiting for prompt"
+send_clean "42\r"
+expect_strict "5 1" "waiting for result: 5 1"

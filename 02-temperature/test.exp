@@ -1,0 +1,5 @@
+#!/usr/bin/env -S expect -f
+
+source [file join [file dirname [info script]] .. common common.exp]
+
+expect_strict "  0  -17.8\r\n 20   -6.7\r\n 40    4.4\r\n 60   15.6\r\n 80   26.7\r\n100   37.8\r\n120   48.9\r\n140   60.0\r\n160   71.1\r\n180   82.2\r\n200   93.3\r\n220  104.4\r\n240  115.6\r\n260  126.7\r\n280  137.8\r\n300  148.9" "waiting for result"

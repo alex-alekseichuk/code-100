@@ -1,0 +1,13 @@
+#!/usr/bin/env -S expect -f
+
+source [file join [file dirname [info script]] .. common common.exp]
+
+send_clean "1\r"
+expect_strict "1" "waiting for line"
+
+send_clean "22\r"
+expect_strict "22" "waiting for line"
+
+send_clean "333\r"
+expect_strict "333" "waiting for line"
+    

@@ -1,0 +1,24 @@
+set timeout 10
+
+proc expect_strict {pattern failmsg} {
+    expect {
+        -exact $pattern { return 0 }
+        timeout { puts "FAIL: timeout ($failmsg)"; exit 1 }
+        eof { puts "FAIL: eof ($failmsg)"; exit 1 }
+        default { puts "FAIL: unexpected output ($failmsg)"; exit 1 }
+    }
+}
+
+proc send_clean {cmd} {
+    send -- "$cmd"
+    expect -re "^\[^\r\n]*\r\n"; # pass through any non-echoed characters (e.g. password prompts)
+}
+
+# Command handling
+if {$argc == 0} {
+    set cmd [list ./a.out]
+} else {
+    set cmd $argv
+}
+
+spawn {*}$cmd
