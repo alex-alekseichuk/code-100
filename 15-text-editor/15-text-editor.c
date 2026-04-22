@@ -1,6 +1,3 @@
-/**
- * gcc 15-text-editor.c buffer.c view.c controller.c -lncurses -ltinfo
- */
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -11,11 +8,16 @@
 #include "view.h"
 #include "controller.h"
 
-static Buffer buffer = {.lines=NULL, .file_path=NULL};
+static Buffer *buffer = NULL;
+static View *view = NULL;
 
 void exit_app() {
-    buffer_close(&buffer);
-    exit(view_close());
+    if (buffer != NULL)
+        buffer_close(buffer);
+    if (view != NULL)
+        exit(view_close(view));
+    else
+        exit(EXIT_SUCCESS);
 }
 
 void sigint_handler(int signum) {
@@ -34,15 +36,22 @@ int main(int argc, char *argv[]) {
 
     const char *file_path = argv[1];
     
-    if (!buffer_open_file(&buffer, file_path)) {
+    buffer = make_buffer();
+    if (buffer == NULL) {
+        fprintf(stderr, "Can't allocate memory for the buffer\n");
+        return EXIT_FAILURE;
+    }
+
+    if (!buffer_open_file(buffer, file_path)) {
         fprintf(stderr, "Can't open/create file: %s\n", file_path);
         return EXIT_FAILURE;
     }
 
-    view_init();
-    view_buffer(&buffer);
+    view = make_view();
+    view_init(view);
+    view_buffer(view, buffer);
 
-    int result = ctrl_run(&buffer);
+    int result = ctrl_run(view, buffer);
 
     exit_app();
     return result;

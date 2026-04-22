@@ -1,18 +1,21 @@
 #pragma once
 
-void view_init();
-void view_buffer(Buffer *_buffer);
-int view_close();
+typedef struct View View;
 
-void cmd_up();
-void cmd_down();
-void cmd_left();
-void cmd_right();
-void cmd_begin_line();
-void cmd_end_line();
-void cmd_page_up();
-void cmd_page_down();
-void cmd_insert_char(char ch);
-void cmd_delete_char();
-void cmd_backspace_char();
-void cmd_enter();
+View *make_view();
+void view_init(View *view);
+void view_buffer(View *view, Buffer *_buffer);
+int view_close(View *view);
+
+void cmd_up(View *view);
+void cmd_down(View *view);
+void cmd_left(View *view);
+void cmd_right(View *view);
+void cmd_begin_line(View *view);
+void cmd_end_line(View *view);
+void cmd_page_up(View *view);
+void cmd_page_down(View *view);
+void cmd_insert_char(View *view, char ch);
+void cmd_delete_char(View *view);
+void cmd_backspace_char(View *view);
+void cmd_enter(View *view);

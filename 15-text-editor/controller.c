@@ -2,7 +2,9 @@
 #include "buffer.h"
 #include "view.h"
 
-int ctrl_run(Buffer *buffer) {
+#define CTRL(c) ((c) & 0x1f)
+
+int ctrl_run(View *view, Buffer *buffer) {
     keypad(stdscr, TRUE);
     set_escdelay(25);
 
@@ -13,48 +15,49 @@ int ctrl_run(Buffer *buffer) {
         }
         switch (key) {
             case KEY_F(2):
-                buffer_save_file(buffer, buffer->file_path);
+            case CTRL('s'): 
+                buffer_save_file(buffer, NULL);
                 break;
             case KEY_UP:
-                cmd_up();
+                cmd_up(view);
                 break;
             case KEY_DOWN:
-               cmd_down();
+               cmd_down(view);
                 break;
             case KEY_LEFT:
-                cmd_left();
+                cmd_left(view);
                 break;
             case KEY_RIGHT:
-                cmd_right();
+                cmd_right(view);
                 break;
             case KEY_HOME:
-                cmd_begin_line();
+                cmd_begin_line(view);
                 break;
             case KEY_END:
-                cmd_end_line();
+                cmd_end_line(view);
                 break;
             case KEY_PPAGE:
-                cmd_page_up();
+                cmd_page_up(view);
                 break;
             case KEY_NPAGE:
-                cmd_page_down();
+                cmd_page_down(view);
                 break;
             case KEY_DC:
-                cmd_delete_char();
+                cmd_delete_char(view);
                 break;
             case KEY_BACKSPACE:
             case 127:
             case 8:
-                cmd_backspace_char();
+                cmd_backspace_char(view);
                 break;
             case KEY_ENTER:
             case '\n':
             case '\r':
-                cmd_enter();
+                cmd_enter(view);
                 break;
         }
         if (key >= 32 && key <= 126) {
-            cmd_insert_char(key);
+            cmd_insert_char(view, key);
         }
     }
 
