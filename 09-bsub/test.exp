@@ -2,6 +2,6 @@
 
 source [file join [file dirname [info script]] .. common common.exp]
 
-expect_strict "Введите элементы: " "waiting for prompt"
+expect_strict "Enter elements: " "waiting for prompt"
 send_clean "a b c\r"
 expect_strict "a \r\nb \r\na b \r\nc \r\na c \r\nb c" "waiting for result"

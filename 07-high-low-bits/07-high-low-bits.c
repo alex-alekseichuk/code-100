@@ -5,7 +5,7 @@
 int main() {
     unsigned int n;
 
-    printf("Введите целое число: ");
+    printf("Enter integer: ");
     scanf("%u", &n);
     int high, low;
     unsigned int x;

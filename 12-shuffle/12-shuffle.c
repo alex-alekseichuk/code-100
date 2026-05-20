@@ -11,7 +11,7 @@ Randomly choose the latest element in the loop.
 int main(int argc, char *argv[]) {
     int n;
     if (argc < 2) {
-        printf("Введите количество элементов: ");
+        printf("Enter elements number: ");
         scanf("%d", &n);
     } else {
         n = atoi(argv[1]);

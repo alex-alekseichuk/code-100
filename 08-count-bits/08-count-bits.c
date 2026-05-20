@@ -5,7 +5,7 @@
 int main() {
     unsigned int n;
 
-    printf("Введите целое число: ");
+    printf("Enter integer: ");
     scanf("%u", &n);
     int count = 0;
     for (unsigned int x = n; x > 0; x &= x - 1) {

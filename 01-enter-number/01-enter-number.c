@@ -3,8 +3,8 @@
 int main() {
     int k;
 
-    printf("Введите число: ");
+    printf("Enter number: ");
     scanf("%d", &k);
-    printf("Ваше число: %d\n", k);
+    printf("The number: %d\n", k);
 }
 

@@ -39,7 +39,7 @@ int main() {
     char *str = NULL;
     size_t len = 0;
 
-    printf("Введите числа: ");
+    printf("Enter numbers: ");
     size_t nread = read_line(&str, &len, stdin);
     
     char *tokens[100];

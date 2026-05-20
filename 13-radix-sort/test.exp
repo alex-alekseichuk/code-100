@@ -2,6 +2,6 @@
 
 source [file join [file dirname [info script]] .. common common.exp]
 
-expect_strict "Введите числа: " "waiting for prompt"
+expect_strict "Enter numbers: " "waiting for prompt"
 send_clean "311 312 313 314 315 211 212 213 214 215 111 112 113 114 115 321 322 323 324 325 121 122 123 124 125\r"
 expect_strict "111 112 113 114 115 121 122 123 124 125 211 212 213 214 215 311 312 313 314 315 321 322 323 324 325" "waiting for result"

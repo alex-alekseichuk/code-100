@@ -2,8 +2,8 @@
 import sys
 
 try:
-    a = int(input("Введите число: "))
+    a = int(input("Enter number: "))
 except:
     sys.exit(1)
-txt = f"Ваше число: {a}" 
+txt = f"The number: {a}"
 print(txt)

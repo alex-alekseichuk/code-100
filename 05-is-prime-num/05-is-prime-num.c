@@ -19,13 +19,13 @@ int is_prime(unsigned long n) {
 int main(int argc, char *argv[]) {
     int k;
 
-    printf("Введите целое число: ");
+    printf("Enter integer: ");
     scanf("%d", &k);
 
     if (is_prime(k)) {
-        printf("Это простое число.\n");
+        printf("Prime number.\n");
     } else {
-        printf("Это не простое число.\n");
+        printf("Non-prime number.\n");
     }
 
     return 0;

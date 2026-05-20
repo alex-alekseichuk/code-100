@@ -16,7 +16,7 @@ int main() {
     char *str = NULL;
     size_t len = 0;
 
-    printf("Введите элементы: ");
+    printf("Enter elements: ");
     size_t nread = read_line(&str, &len, stdin);
     
     char *tokens[100];

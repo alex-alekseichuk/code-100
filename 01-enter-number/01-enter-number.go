@@ -8,12 +8,12 @@ import (
 )
 
 func main() {
-	number, err := strconv.Atoi(readLine("Введите число: "))
+	number, err := strconv.Atoi(readLine("Enter number: "))
 	if err != nil {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Ваше число: %d\n", number)
+	fmt.Printf("The number: %d\n", number)
 }
 
 func readLine(greeting string) string {
