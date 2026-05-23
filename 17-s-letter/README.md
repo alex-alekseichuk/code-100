@@ -1,6 +1,10 @@
-Python/paygame implementation of letter S drawing by Knuth's METAFONT.
+# The letter S
 
-### S letter
+Python/PyGame implementation of drawing the letter “S” using Knuth’s METAFONT.
+
+![s letter](./s-letter.png)
+
+### Metafont code
 
 ```metafont
 x1 = 4.5u; y1 = 9u;
@@ -52,4 +56,4 @@ draw 14..12.
 
 ### References
 
-https://gwern.net/doc/design/typography/1980-knuth.pdf
+<https://gwern.net/doc/design/typography/1980-knuth.pdf>
