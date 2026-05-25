@@ -1,5 +1,5 @@
 /**
- * An Egyptian fraction is a mathematical representation of a positive rational number
+* An Egyptian fraction is a mathematical representation of a positive rational number
  * as the sum of distinct unit fractions (fractions with a numerator of 1).
  * E.g., 5/6 = 1/2 + 1/3
  *
