@@ -1,0 +1,5 @@
+IN A
+IN B
+MOVI 42
+ADD A,B
+OUT A

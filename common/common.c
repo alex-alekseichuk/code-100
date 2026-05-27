@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 size_t read_line(char **lineptr, size_t *n, FILE *stream) {
     if (!lineptr || !n || !stream) return -1;
@@ -50,4 +51,15 @@ size_t parse_line(char *str, char *tokens[], size_t *count, const char *delimite
     *count = _count;
 
     return _count;
+}
+
+void print_log(const char *format, ...) {
+    va_list args;
+    va_start(args, format);
+
+    vfprintf(stderr, format, args);
+
+    fprintf(stderr, "\n");
+
+    va_end(args);
 }
