@@ -28,7 +28,12 @@ Go:
 ./test.exp go run 01-enter-number.py
 ```
 
-Rust (via rust-script):
+Rust (via cargo):
+```bash
+./test.exp cargo run
+```
+
+Rust (via rust-script w/o common dependencies):
 ```bash
 ./test.exp rust-script 00-hello-world.rs
 ```

@@ -4,3 +4,5 @@ a.byte_code
 example.code
 cmake-build-debug
 build
+target
+.continue

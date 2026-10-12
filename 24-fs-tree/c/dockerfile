@@ -1,0 +1,5 @@
+# Run from the task root (the directory that contains both go/ and testdata/):
+#   docker build -t cc_hw1_tree -f c/dockerfile .
+FROM gcc:13
+COPY . .
+RUN cd /c && cc -std=c11 -Wall -Wextra -DTREE_NO_MAIN -o test main.c main_test.c && ./test

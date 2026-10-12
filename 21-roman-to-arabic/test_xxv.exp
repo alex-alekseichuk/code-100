@@ -1,0 +1,6 @@
+#!/usr/bin/env -S expect -f
+
+source [file join [file dirname [info script]] .. common common.exp]
+
+send_clean "XXV\r"
+expect_strict "25" "It should be 25"
